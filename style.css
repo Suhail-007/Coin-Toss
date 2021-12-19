@@ -1,0 +1,140 @@
+*, *::after, *::before {
+		box-sizing: border-box;
+}
+
+body {
+		display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #00abff 50%, #bfeaff 50%);
+}
+
+.container {
+		display: flex;
+		flex-direction: column;
+  align-items: center;
+		border-radius: 2vw;
+		background: white;
+		box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.3);
+		padding: 1vw 5vw;
+		width: 90%;
+		height: 60%;
+}
+
+.heading-div {
+		font-size: 8vw;
+		text-align: center;
+}
+
+.heading-div > h2 {
+		padding: 1vw 0;
+		margin: 0;
+}
+
+.player-comp-div {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		font-size: 4vw;
+		margin: 4vw 0;
+		padding: 2vw;
+		border-radius: 1vw;
+		/*box-shadow: 1px 0px 3px 2px #fff, 0px 1px 5px 1px #000, -1px 0px 5px 4px rgba(255,255,255,0.5), 0px -1px 5px 4px rgba(255,255,255,0.5);*/
+ 	box-shadow: 1px 0px 5px 4px rgba(220,220,220,0.5), 0px 1px 3px 5px rgba(255,255,255,0.5), -1px 0px 3px 2px #fff, 0px -1px 5px 1px #000;
+ 	/*Two different type of numorphism shadow*/
+}
+
+.btn-div {
+		transform: translateY(20vw);
+		width: 100%;
+		text-align: center;
+}
+
+.heads-btn {
+		margin-right: 2vw;
+}
+
+button {
+		outline: none;
+		border: none;
+		font-size: 4vw;
+		padding: 2vw;
+		width: 20%;
+		background-color: none;
+		border-radius: 4vw;
+		background: linear-gradient(45deg, #00abff, #bfeaff);
+}
+
+.coin {
+		position: relative;
+		transform-style: preserve-3d;
+		backface-visibility: hidden;		
+		width: 30vw;
+		height: 15vh;
+		font-size: 5vw;
+		display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tails.active{
+		animation-duration: 500ms;
+  animation-name: upAndRotate;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+  animation-direction: forwards;
+}
+
+/*.coin .active {
+		animation-duration: 500ms;
+  animation-name: upAndRotate;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+  animation-direction: forwards;
+}*/
+
+
+/*styled the coin sides */ 
+.heads,
+.tails {
+		width: 5em;
+		height: 5em;
+		border-radius: 100%;
+		background: wheat;
+ /* animation-duration: 500ms;
+  animation-name: upAndRotate;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  animation-direction: forwards;*/
+  position: absolute;
+  text-align: center;
+  	display: flex;
+  justify-content: center;  	
+  align-items: center;
+}
+
+.heads {
+		color: red;
+		background: blanchedalmond;
+}
+
+@keyframes upAndRotate {
+  0% {
+    transform: translateY(0) rotateX(0deg); 
+  }
+  
+  25% {
+  		transform: translateY(-30px) rotateX(720deg);
+  }
+  
+  75% {
+  		transform: translateY(-20px) rotateX(1440deg);
+  		}
+  		
+  	100% {
+  			transform: translateY(0) rotateX(0deg);
+  	}
+}
