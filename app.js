@@ -49,11 +49,11 @@ function score(random, userChoose, computerChoose) {
 
 function winner() {
 		if (userScore === 3) {		
-				p.innerHTML		= `You Won!!!`
+				p.innerHTML		= `You Won!!`
 		} else if (computerScore === 3) {
-				p.innerText = 'Computer won!'
+				p.innerHTML = `Computer won!`
 		}
-		document.querySelector('.container').append(p);
+document.querySelector('.container').append(p);				
 }
 
 
@@ -82,7 +82,7 @@ buttons.addEventListener('click', (e) => {
    		}, 1000);
               
  setTimeout(() => {
-   coin.classList.toggle('active');
+   coin.classList.remove('active');
             }, 2000); 
 winner();   			
 		});
