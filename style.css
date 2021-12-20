@@ -10,6 +10,7 @@ body {
   height: 100vh;
   margin: 0;
   background: linear-gradient(135deg, #00abff 50%, #bfeaff 50%);
+  user-select: none;
 }
 
 .container {
@@ -80,45 +81,22 @@ button {
   align-items: center;
 }
 
-.tails.active{
-		animation-duration: 500ms;
-  animation-name: upAndRotate;
-  animation-iteration-count: 1;
-  animation-delay: 1s;
-  animation-direction: forwards;
-}
-
-/*.coin .active {
-		animation-duration: 500ms;
-  animation-name: upAndRotate;
-  animation-iteration-count: 1;
-  animation-delay: 1s;
-  animation-direction: forwards;
-}*/
-
-
 /*styled the coin sides */ 
-.heads,
-.tails {
+.heads {
 		width: 5em;
 		height: 5em;
 		border-radius: 100%;
 		background: wheat;
- /* animation-duration: 500ms;
-  animation-name: upAndRotate;
-  animation-iteration-count: 1;
-  animation-delay: 2s;
-  animation-direction: forwards;*/
   position: absolute;
   text-align: center;
   	display: flex;
   justify-content: center;  	
-  align-items: center;
+  align-items: center; 
+  
 }
 
-.heads {
-		color: red;
-		background: blanchedalmond;
+.active {
+		animation: upAndRotate 500ms alternate;
 }
 
 @keyframes upAndRotate {
@@ -136,5 +114,5 @@ button {
   		
   	100% {
   			transform: translateY(0) rotateX(0deg);
-  	}
-}
+		  	}
+} 
