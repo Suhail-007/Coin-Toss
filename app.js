@@ -8,74 +8,81 @@ let computerScore = 0;
 let heads = 1;
 let tails = 0;
 
+let p = document.createElement('p');
+ 
+ 
 //this will change according to the random number
 function headsAndTails(random) {
+let showHeads = document.querySelector('.heads');
+
 		if (random === 1) {
-				let showTails = document.querySelector('.tails');
-				showTails.textContent = 'Heads';
-				showTails.style.color = 'red';
+				showHeads.textContent = 'Heads';
+				showHeads.style.color = 'red';
 		}
 		
 		if (random === 0) {
-				let showTails = document.querySelector('.tails');
-				showTails.textContent = 'Tails';
-				showTails.style.color = '';
+				showHeads.textContent = 'Tails';
+				showHeads.style.color = '';
 		}
 }
 
 //random number either be 1 or 0
 function score(random, userChoose, computerChoose) {
+		//calling this function here so it won't get delay showing the heads and tails
+		headsAndTails(random);
 		if (random === userChoose) {
 				playerOutput.style.color = 'green';
 				playerOutput.style.fontWeight = 'bold';
+				compOutput.style.fontWeight = '';
 			 userScore++;
 				playerOutput.textContent = `Player: ${userScore}`;
 				compOutput.style.color = 'red';
 		} else if (random === computerChoose) {
 				compOutput.style.color = 'green';
 				compOutput.style.fontWeight = 'bold';
+				playerOutput.style.fontWeight = '';
 				playerOutput.style.color = 'red';
 				computerScore++;
 				compOutput.textContent = `Computer: ${computerScore}`;
 		}
-		//calling this function here so it won't get delay showing the heads and tails
-		headsAndTails(random)
 }
 
 function winner() {
+		if (userScore === 3) {		
+				p.innerHTML		= `You Won!!!`
+		} else if (computerScore === 3) {
+				p.innerText = 'Computer won!'
+		}
+		document.querySelector('.container').append(p);
 }
 
-function animate(random, userChoose, computerChoose) {
-	let tails = document.querySelector('.tails');
-//		let heads = document.querySelector('.heads');
-	//	tails.classList.add('active');
-//		heads.classList.add('active');
-tails.classList.add('active')
-
-tails.addEventListener('animationend', () => {
-		userChoose = heads;
-		computerChoose = tails;
-		score(randomn, userChoosep, computerChoosep);
-})
-}
 
 buttons.addEventListener('click', (e) => {
 		let userSelection;
 		let computerSelection;
-		
-	//this will generate a new number everytime we call on click function, math.round will round the number to nearest integer
-	let randomNumber = Math.round(Math.random()); //0 or 1
-		console.log(randomNumber);
-		
-			if (e.target.dataset.head) {
-					animate(randomNumber, userSelection, computerSelection);
 					
-					//1 is heads and 0 is tails line 8 and 9
+		//this will generate a new number everytime we call on click function, math.round will round the number to nearest integer
+	let randomNumber = Math.round(Math.random()); //0 or 1
+		console.log(randomNumber)	
+			
+			if (e.target.dataset.head)	{
+					userSelection = heads;
+					computerSelection = tails;	
+			//1 is heads and 0 is tails line 8 and 9
 			} else if (e.target.dataset.tail) {
 				userSelection = tails;
-				computerSelection = heads;
-			}
-			
-	//call the score function here and add the userSelection and computerSelection as parameter	
-		})
+				computSelection = heads;			
+			}      
 
+ 	let coin = document.querySelector('.coin');
+	coin.classList.add('active');
+	
+   setTimeout(() => {
+   		score(randomNumber, userSelection, computerSelection);
+   		}, 1000);
+              
+ setTimeout(() => {
+   coin.classList.toggle('active');
+            }, 2000); 
+winner();   			
+		});
