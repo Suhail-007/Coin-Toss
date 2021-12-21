@@ -80,6 +80,7 @@ button {
 		display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 /*styled the coin sides */ 
@@ -92,8 +93,16 @@ button {
   text-align: center;
   	display: flex;
   justify-content: center;  	
-  align-items: center; 
-  
+  align-items: center;  
+}
+
+.heads {
+		color: red;
+}
+
+/* this will add by js later*/
+.active {
+		animation: upAndRotate 1s forwards;
 }
 
 @keyframes upAndRotate {
@@ -106,7 +115,7 @@ button {
   }
   
   75% {
-  		transform: translateY(-20px) rotateX(1440deg);
+  		transform: translateY(-20px) rotateX(1980deg);
   		}
   		
   	100% {

@@ -17,11 +17,8 @@ buttonsDiv.addEventListener('click', (event) => {
 				userSelection = tails;
 				computerSelection = heads;
 		}
-		
-setTimeout(() => {
-addScore(randomNumber, userSelection, computerSelection)}, 500);
 
-animate();
+animate(randomNumber, userSelection, computerSelection);
 });
 
 function addScore(randomNum, userPick, comPick) {
@@ -49,26 +46,35 @@ isHeadTail(randomNum)
 
 function isHeadTail(randomNum) {
  let tails = document.querySelector('.tails');
-		if (randomNum === 1) {
-				tails.textContent = 'Heads';
-				tails.style.color = 'red';
-		} else {
+ let heads = document.querySelector('.heads'); 
+	if (randomNum === 1) {
+			tails.textContent = 'Heads';
+			heads.textContent = 'Tails';
+			heads.style.color = 'black';
+			tails.style.color = 'red';
+		} else if (randomNum === 0) {
 				tails.textContent = 'Tails';
-				tails.style.color = '';
-		}		
+				tails.style.color = ''
+				heads.style.color = '';
+				heads.textContent = 'Heads';
+		}	
 };
 
-function animate() {
+function animate(r, u, c) {
 		let tails = document.querySelector('.tails');
 		let heads = document.querySelector('.heads');
 		
-		tails.style.animation = 'upAndRotate 500ms alternate';
-		heads.style.animation = 'upAndRotate 500ms alternate';
-		
+//tails.style.animation = 'upAndRotate 500ms alternate';
+//heads.style.animation = 'upAndRotate 500ms alternate';
+
+tails.classList.add('active');
+heads.classList.add('active');
+
 		tails.addEventListener('animationend', () => {
-		tails.style.animation = '';
-		heads.style.animation = '';
-		})
+		tails.classList.remove('active');
+		heads.classList.remove('active');
+		addScore(r, u, c)
+		}, {once: true})		
 };
 
 function isWinner() {
