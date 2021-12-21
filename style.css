@@ -10,6 +10,7 @@ body {
   height: 100vh;
   margin: 0;
   background: linear-gradient(135deg, #00abff 50%, #bfeaff 50%);
+  user-select: none;
 }
 
 .container {
@@ -22,6 +23,7 @@ body {
 		padding: 1vw 5vw;
 		width: 90%;
 		height: 60%;
+		border: 1px solid black;
 }
 
 .heading-div {
@@ -62,7 +64,7 @@ button {
 		border: none;
 		font-size: 4vw;
 		padding: 2vw;
-		width: 20%;
+		min-width: 20%;		
 		background-color: none;
 		border-radius: 4vw;
 		background: linear-gradient(45deg, #00abff, #bfeaff);
@@ -78,47 +80,29 @@ button {
 		display: flex;
   justify-content: center;
   align-items: center;
+  
 }
-
-.tails.active{
-		animation-duration: 500ms;
-  animation-name: upAndRotate;
-  animation-iteration-count: 1;
-  animation-delay: 1s;
-  animation-direction: forwards;
-}
-
-/*.coin .active {
-		animation-duration: 500ms;
-  animation-name: upAndRotate;
-  animation-iteration-count: 1;
-  animation-delay: 1s;
-  animation-direction: forwards;
-}*/
-
 
 /*styled the coin sides */ 
-.heads,
-.tails {
+.heads, .tails {
 		width: 5em;
 		height: 5em;
 		border-radius: 100%;
 		background: wheat;
- /* animation-duration: 500ms;
-  animation-name: upAndRotate;
-  animation-iteration-count: 1;
-  animation-delay: 2s;
-  animation-direction: forwards;*/
   position: absolute;
   text-align: center;
   	display: flex;
   justify-content: center;  	
-  align-items: center;
+  align-items: center;  
 }
 
 .heads {
 		color: red;
-		background: blanchedalmond;
+}
+
+/* this will add by js later*/
+.active {
+		animation: upAndRotate 1s forwards;
 }
 
 @keyframes upAndRotate {
@@ -131,10 +115,10 @@ button {
   }
   
   75% {
-  		transform: translateY(-20px) rotateX(1440deg);
+  		transform: translateY(-20px) rotateX(1980deg);
   		}
   		
   	100% {
   			transform: translateY(0) rotateX(0deg);
-  	}
-}
+		  	}
+} 
