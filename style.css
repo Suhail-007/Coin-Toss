@@ -83,7 +83,7 @@ button {
 }
 
 /*styled the coin sides */ 
-.heads {
+.heads, .tails {
 		width: 5em;
 		height: 5em;
 		border-radius: 100%;
@@ -94,10 +94,6 @@ button {
   justify-content: center;  	
   align-items: center; 
   
-}
-
-.active {
-		animation: upAndRotate 500ms alternate;
 }
 
 @keyframes upAndRotate {
